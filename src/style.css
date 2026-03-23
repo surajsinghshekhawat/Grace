@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --grace-bg: 250 250 252;
+    --grace-card: 255 255 255;
+    --grace-ink: 17 24 39;
+    --grace-muted: 107 114 128;
+    --grace-accent: 20 184 166; /* teal */
+    --grace-accent-2: 167 139 250; /* lavender */
+  }
+}
+
+@layer components {
+  .grace-screen {
+    @apply min-h-screen bg-slate-50;
+  }
+  .grace-container {
+    @apply mx-auto w-full max-w-3xl px-4 pb-28 pt-6;
+  }
+  .grace-card {
+    @apply bg-white/90 backdrop-blur rounded-3xl shadow-sm border border-white/60;
+  }
+  .grace-card-pad {
+    @apply p-5 md:p-6;
+  }
+  .grace-title {
+    @apply text-2xl md:text-3xl font-bold text-gray-800 tracking-tight;
+  }
+  .grace-subtitle {
+    @apply text-gray-600 leading-relaxed;
+  }
+  .grace-pill {
+    @apply rounded-full px-6 py-3 font-semibold shadow-sm transition;
+  }
+  .grace-pill-primary {
+    @apply grace-pill bg-teal-500 text-white hover:bg-teal-600;
+  }
+  .grace-pill-secondary {
+    @apply grace-pill bg-white border border-teal-200 text-teal-700 hover:bg-teal-50;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+/* Applied from saved user settings (see AppShell) */
+html.grace-large-text {
+  font-size: 112%;
+}
+
+html.grace-high-contrast .grace-screen {
+  @apply bg-white;
+}
+
+html.grace-high-contrast .grace-card {
+  @apply border-gray-300 bg-white;
+}
+
+html.grace-high-contrast .grace-title,
+html.grace-high-contrast body {
+  @apply text-gray-950;
+}
+
+html.grace-high-contrast .grace-subtitle {
+  @apply text-gray-800;
+}
+
+/* ---- Accessibility ---- */
+.grace-skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.grace-skip-link:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  border-radius: 0.75rem;
+  background-color: #6d28d9;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.15);
+  outline: 2px solid #c4b5fd;
+  outline-offset: 2px;
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Visible keyboard focus (does not override mouse clicks) */
+@layer base {
+  :where(a, button, input, textarea, select, summary):focus-visible {
+    @apply outline-none ring-2 ring-violet-600 ring-offset-2 ring-offset-slate-50 rounded-md;
+  }
+}
+
+html.grace-high-contrast :where(a, button, input, textarea, select, summary):focus-visible {
+  @apply ring-amber-400 ring-offset-white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.grace-reduced-motion *,
+  html.grace-reduced-motion *::before,
+  html.grace-reduced-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,66 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Env & secrets (never commit)
+.env
+.env.*
+!.env.example
+
+# Local databases
+grace-backend/grace.db
+grace-backend/*.db
+
+# ElderSense Python env and generated data (optional: uncomment to ignore merged CSV)
+eldersense/venv
+
+# pytest sqlite (grace-backend)
+grace-backend/tests/pytest_grace.db
+
+# Test / E2E artifacts
+test-results/
+playwright-report/
+playwright/.cache/
+
+# --- Keep research & internal docs out of the repo ---
+# Project documentation, plans, literature, research notes
+docs/
+
+# Raw datasets & instruments (research)
+data/
+
+# Legacy / prototype UI tree
+UICODE/
+
+# Pasted imports / scratch (research)
+**/pasted_text/**
+
+# Duplicate / junk filenames
+README (2).md
+index (2).html
+package (2).json
+
+# OS / tooling
+Thumbs.db
+*.pem

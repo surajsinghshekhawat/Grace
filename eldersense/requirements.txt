@@ -1,0 +1,16 @@
+# ElderSense ML pipeline — core dependencies
+# Install from project root: pip install -r eldersense/requirements.txt
+
+pandas>=2.0.0
+openpyxl>=3.1.0
+# NumPy <2 required for TensorFlow/Keras (Phase 6); Keras pulls in OpenCV which fails on NumPy 2.x
+numpy>=1.24.0,<2
+scikit-learn>=1.3.0
+xgboost>=2.0.0
+
+# For Phase 6 (multi-task model):
+tensorflow>=2.14.0
+
+# For Phase 7 (SHAP):
+shap>=0.43.0
+matplotlib>=3.5.0
