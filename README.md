@@ -151,11 +151,12 @@ Use **HTTPS** everywhere. The browser sends cookies to your API; **do not** poin
 1. Push this repo to **GitHub** (from `grace/` only).
 2. On **Render** → **New** → **Web Service** → connect the repo.
 3. **Root directory:** `grace-backend`
-4. **Build command:** `pip install -r requirements.txt` (or use a `requirements.txt` + Python version from Render’s UI).
-5. **Start command:**  
+4. **Python version:** The repo includes `grace-backend/.python-version` (`3.12.8`). **Do not use Render’s default Python 3.14** — `pandas` / `scikit-learn` need wheels; 3.14 forces a broken source build. If needed, set env **`PYTHON_VERSION=3.12.8`** on the service.
+5. **Build command:** `pip install -r requirements.txt`
+6. **Start command:**  
    `uvicorn main:app --host 0.0.0.0 --port $PORT`  
    (Render sets `$PORT`.)
-6. **Environment variables** (minimum):
+7. **Environment variables** (minimum):
 
    | Variable | Example / note |
    |----------|----------------|
@@ -166,8 +167,8 @@ Use **HTTPS** everywhere. The browser sends cookies to your API; **do not** poin
    | `ELDERSENSE_EXPORT_DIR` | Path where joblib/JSON live on the server (or bake into image) |
    | `GRACE_DB_PATH` or DB URL | If you use Postgres, set whatever your app expects after you wire it |
 
-7. Add **SMTP** vars if you use password reset email (`SMTP_HOST`, `SMTP_FROM`, etc.).
-8. Deploy and note the **public API URL**, e.g. `https://grace-api.onrender.com`.
+8. Add **SMTP** vars if you use password reset email (`SMTP_HOST`, `SMTP_FROM`, etc.).
+9. Deploy and note the **public API URL**, e.g. `https://grace-api.onrender.com`.
 
 ---
 

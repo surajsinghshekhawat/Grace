@@ -4,7 +4,8 @@ FastAPI server for Grace: ElderSense prediction API and (later) auth, profiles, 
 
 ## Prerequisites
 
-- Python 3.10+
+- **Python 3.12.x** recommended (matches `grace-backend/.python-version` for Render). Avoid **3.14** on deploy: `pandas` / `scikit-learn` in `requirements.txt` need binary wheels; 3.14 triggers broken source builds.
+- Python 3.10+ works locally if you use a matching venv.
 - ElderSense export: run from project root:
   ```bash
   cd eldersense && python -m eldersense.export_model
