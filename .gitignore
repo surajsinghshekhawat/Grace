@@ -70,3 +70,8 @@ package (2).json
 # OS / tooling
 Thumbs.db
 *.pem
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
