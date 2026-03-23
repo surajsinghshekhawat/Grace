@@ -47,7 +47,8 @@ playwright/.cache/
 # Project documentation, plans, literature, research notes
 docs/
 
-# Raw datasets & instruments (research at repo root only)
+# Raw datasets & instruments (research at repo root only).
+# Do not ignore src/data/ — Assessment.jsx imports ../data/questions (must be in git for CI).
 /data/
 
 # Ignore all ElderSense data by default, but keep deploy artifacts
