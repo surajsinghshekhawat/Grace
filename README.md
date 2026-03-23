@@ -46,6 +46,29 @@ Internal docs, research datasets, and `docs/` are **gitignored** (see `.gitignor
 
 This repo lives in **`grace/`** only. **Do not** use a Git repo rooted at your user profile folder.
 
+### What to commit for a fully running app (Render / production)
+
+**Always commit (app code):**
+
+- `package.json`, `package-lock.json`, `vite.config.ts`, `index.html`, `tailwind.config.js`, `postcss.config.js`, `src/`, `public/`
+- `grace-backend/` (all of it except local `.env` and `grace.db` — those stay local)
+- `e2e/` if you use Playwright in CI
+- `archive/` is optional (prototype only)
+- `.gitignore`, `.env.example`, root `README.md`, `ATTRIBUTIONS.md`
+
+**Required for predictions (ElderSense):**
+
+- `eldersense/data/export/selected_features.json` (and other JSON already there)
+- **`model_depression.joblib`, `model_qol.joblib`, `scaler.joblib`, `impute_state.joblib`** — generate with:
+
+  ```bash
+  cd eldersense && python -m eldersense.export_model
+  ```
+
+  from repo root (see `eldersense/data/export/README.md` and `eldersense/README.md`). **Commit these `.joblib` files** so Render receives them; then you do **not** need `ELDERSENSE_EXPORT_DIR` unless your host uses a non-standard path.
+
+**Never commit:** `.env`, `grace-backend/.env`, `grace-backend/grace.db`, `node_modules/`, `dist/`, `docs/` (ignored), secrets.
+
 ---
 
 ## Prerequisites

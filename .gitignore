@@ -47,8 +47,13 @@ playwright/.cache/
 # Project documentation, plans, literature, research notes
 docs/
 
-# Raw datasets & instruments (research)
-data/
+# Raw datasets & instruments (research at repo root only)
+/data/
+
+# Ignore all ElderSense data by default, but keep deploy artifacts
+eldersense/data/*
+!eldersense/data/export/
+!eldersense/data/export/**
 
 # Legacy / prototype UI tree
 UICODE/
